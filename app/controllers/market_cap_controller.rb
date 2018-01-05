@@ -1,6 +1,10 @@
 class MarketCapController < ApplicationController
 	def index
-		@current_snapshot = Snapshot.last
+		@latest_snapshot = Snapshot.last.payload
+
+		# @current_snapshot.each do 
+
+		# end
 	end
 
 end

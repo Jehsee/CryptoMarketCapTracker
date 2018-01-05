@@ -1,32 +1,28 @@
-<h1><%= @current_snapshot %></h1>
-
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Rank</th>
+      <th scope="col">(+/-)</th>
+      <th scope="col">Name</th>
+      <th scope="col">Market Cap</th>
+      <th scope="col">Volume (24hr)</th>
+      <th scope="col">Price (USD)</th>
+      <th scope="col">Price (BTC)</th>
+      <th scope="col">Circulating Supply</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <% @latest_snapshot.each do |coin|%>
+      <tr>
+        <td><%= coin["rank"] %></td>
+        <td><%#= helper method that calculates difference in ranking from previous snapshot %></td>
+        <td><%= coin["name"] %></td>
+        <td><%= coin["market_cap_usd"] %></td>
+        <td><%= coin["24h_volume_usd"] %></td>
+        <td><%= coin["price_usd"] %></td>
+        <td><%= coin["price_btc"] %></td>
+        <td><%= coin["available_supply"] %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
